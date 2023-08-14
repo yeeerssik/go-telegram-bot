@@ -1,7 +1,6 @@
 package telegram
 
 import (
-	"Go-Tg-Bot/clients/telegram"
 	"Go-Tg-Bot/lib/e"
 	"Go-Tg-Bot/storage"
 	"errors"
@@ -89,12 +88,6 @@ func (p *Processor) sendHelp(chatID int) error {
 
 func (p *Processor) sendHello(chatID int) error {
 	return p.tg.SendMessages(chatID, msgHello)
-}
-
-func NewMessageSender(chatID int, tg *telegram.Client) func(string) error {
-	return func(msg string) error {
-		return tg.SendMessages(chatID, msg)
-	}
 }
 
 func isAddCmd(text string) bool {
